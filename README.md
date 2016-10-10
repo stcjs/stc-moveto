@@ -1,4 +1,12 @@
 # stc-moveto
+---
+
+[![Build Status](https://travis-ci.org/stcjs/stc-moveto.svg?branch=master)](https://travis-ci.org/stcjs/stc-moveto/branches)
+[![dependencies Status](https://david-dm.org/stcjs/stc-moveto/status.svg)](https://david-dm.org/stcjs/stc-moveto)
+[![devDependencies Status](https://david-dm.org/stcjs/stc-moveto/dev-status.svg)](https://david-dm.org/stcjs/stc-moveto?type=dev)
+<!--[![NPM version](https://img.shields.io/npm/v/stc-helper.svg?style=flat-square)](http://badge.fury.io/js/stc-helper)-->
+<!--[![Coverage Status](https://coveralls.io/repos/github/stcjs/stc-helper/badge.svg?branch=master&v=1)](https://coveralls.io/github/stcjs/stc-helper?branch=master)-->
+<!--[![codecov](https://codecov.io/gh/stcjs/stc-moveto/branch/master/graph/badge.svg)](https://codecov.io/gh/stcjs/stc-moveto)-->
 
 标签移动指令
 接收参数  head, tail
