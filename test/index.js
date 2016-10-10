@@ -27,5 +27,5 @@ test(t => {
   setTimeout(() =>{
     const build = fs.readFileSync(BUILD_PATH, 'utf8')
     t.is(build, result)
-  }, 2000)
+  }, 20000)
 })

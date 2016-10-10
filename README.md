@@ -1,5 +1,4 @@
 # stc-moveto
----
 
 [![Build Status](https://travis-ci.org/stcjs/stc-moveto.svg?branch=master)](https://travis-ci.org/stcjs/stc-moveto/branches)
 [![dependencies Status](https://david-dm.org/stcjs/stc-moveto/status.svg)](https://david-dm.org/stcjs/stc-moveto)
@@ -8,10 +7,26 @@
 <!--[![Coverage Status](https://coveralls.io/repos/github/stcjs/stc-helper/badge.svg?branch=master&v=1)](https://coveralls.io/github/stcjs/stc-helper?branch=master)-->
 <!--[![codecov](https://codecov.io/gh/stcjs/stc-moveto/branch/master/graph/badge.svg)](https://codecov.io/gh/stcjs/stc-moveto)-->
 
-标签移动指令
-接收参数  head, tail
 
-## 使用
+csslint plugin for stc
+
+## Install
+
+```sh
+npm install stc-moveto
+```
+
+## How to use
+
+```
+const csslint = require('stc-moveto')
+
+stc.workflow({
+  moveto: {plugin: moveto, include: {type: 'tpl'}}
+})
+
+```
+
 
 ```
 <script stc-moveto="head"  src="xxx"></script>
