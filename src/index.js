@@ -1,5 +1,6 @@
 import Plugin from 'stc-plugin';
 import jsonuri from 'jsonuri'
+import {TokenType} from 'flkit'
 import {
   convert2Comment,
   findHeadIdx,
@@ -46,13 +47,17 @@ export default class MovetoPlugin extends Plugin {
    * 3. 标记失败和成功注释
    * 4. 先插入css, 再插入js
    */
-   doMove(tokens, moveTask) {
+  doMove(tokens, moveTask) {
     let uniqueIdx = [], succIdx = []
     let tasks = moveTask.tasks = sort(moveTask.tasks, 'point', ['head', 'tail'])
-    unique(tasks, 'url', {skipNull: true, callback(o, i) {
-      uniqueIdx.unshift(o.idx)
-    }})
-    tasks.forEach(o => {succIdx.push(o.idx)})
+    unique(tasks, 'url', {
+      skipNull: true, callback(o, i) {
+        uniqueIdx.unshift(o.idx)
+      }
+    })
+    tasks.forEach(o => {
+      succIdx.push(o.idx)
+    })
 
     uniqueIdx.forEach(idx => {
       convert2Comment(tokens, idx, `FAIL: unique`)
@@ -65,7 +70,7 @@ export default class MovetoPlugin extends Plugin {
     'css,js'.split(',').forEach(lang => {
       tasks.forEach(o => {
         let injectIdx
-        if(o.lang === lang) {
+        if (o.lang === lang) {
           switch (o.point) {
             case 'head':
               injectIdx = findHeadIdx(tokens)
@@ -80,6 +85,11 @@ export default class MovetoPlugin extends Plugin {
         }
       })
     })
+
+    if (!this.options.debug) {
+      tokens = tokens.filter(token => token.type !== TokenType.RESERVED_COMMENT)
+    }
+
     return tokens
   }
 

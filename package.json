@@ -13,8 +13,7 @@
     "watch-compile": "npm run compile -- --watch",
     "watch": "npm run watch-compile",
     "prepublish": "npm run compile",
-    "eslint": "eslint src/",
-    "build-test": "cd misc; node stc.config.js"
+    "eslint": "eslint src/"
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -44,7 +43,8 @@
     "babel-preset-es2015-loose": "7.0.0",
     "babel-preset-stage-1": "6.x.x",
     "eslint": "2.8.0",
-    "istanbul": "0.4.0"
+    "istanbul": "0.4.0",
+    "stc": "^2.0.11"
   },
   "keywords": [],
   "repository": {
