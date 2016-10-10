@@ -23,7 +23,7 @@
     "bluebird": "^3.4.0",
     "debug": "^2.2.0",
     "flkit": "3.x.x",
-    "jsonuri": "^1.5.5",
+    "jsonuri": "^1.5.6",
     "source-map-support": "^0.4.0",
     "stc-cache": "1.x.x",
     "stc-cluster": "1.x.x",
