@@ -1,7 +1,7 @@
 {
   "name": "stc-moveto",
   "description": "move js/css to </head> or </body>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "haozime",
     "email": "syntaxRight@gmail.com"

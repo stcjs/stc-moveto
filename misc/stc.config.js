@@ -8,7 +8,11 @@ stc.config({
 })
 
 stc.workflow({
-  moveto: {plugin: moveto, include: {type: 'tpl'}}
+  moveto: {
+    plugin: moveto, include: {type: 'tpl'}, options: {
+      debug: false
+    }
+  }
 });
 
 stc.start()

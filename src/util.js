@@ -13,15 +13,15 @@ export function isTag(token, tagname) {
   if (token.type) {
     switch (token.type) {
       case TokenType.HTML_TAG_START:
-        return token.ext.tagLowerCase === tagname;
+        return token.ext.tagLowerCase === tagname
       case TokenType.HTML_TAG_TEXTAREA:
-        return tagname === "textarea";
+        return tagname === "textarea"
       case TokenType.HTML_TAG_SCRIPT:
-        return tagname === "script";
+        return tagname === "script"
       case TokenType.HTML_TAG_STYLE:
-        return tagname === "style";
+        return tagname === "style"
       case TokenType.HTML_TAG_PRE:
-        return tagname === "pre";
+        return tagname === "pre"
     }
   }
 
@@ -41,9 +41,9 @@ export function isInject(token, injectPoint) {
 
   switch (injectPoint) {
     case 'head':
-      return token.ext.tagLowerCase === 'head';
+      return token.ext.tagLowerCase === 'head'
     case 'tail':
-      return token.ext.tagLowerCase === 'body';
+      return token.ext.tagLowerCase === 'body'
   }
 }
 
@@ -104,9 +104,11 @@ export function sort(arr, key, order) {
 export function convert2Comment(tokens, index, msg) {
   let token = tokens[index]
   if (!token) return
+  const lt = [/<-+/g, '&lt;--']
+  const gt = [/-+!?>/g, '--&gt;']
 
   token.type = TokenType.RESERVED_COMMENT
-  token.value = `<!-- ${msg} ${token.value} -->\n`
+  token.value = `<!-- ${msg} ${token.value.replace(lt[0], lt[1]).replace(gt[0], gt[1])} -->\n`
   return tokens
 }
 
@@ -136,7 +138,7 @@ export function delAttr(token, key) {
   let attrs = jsonuri.get(token, 'ext/attrs') || jsonuri.get(token, 'ext/start/ext/attrs') || []
   let newAttrs = []
 
-  for(let attr of attrs) {
+  for (let attr of attrs) {
     if (typeof key === 'function') {
       if (key(attr.name)) {
         continue
@@ -145,10 +147,10 @@ export function delAttr(token, key) {
     }
   }
 
-  if(jsonuri.get(token, 'ext/attrs')) {
+  if (jsonuri.get(token, 'ext/attrs')) {
     jsonuri.set(token, 'ext/attrs', newAttrs)
   }
-  if(jsonuri.get(token, 'ext/start/ext/attrs')) {
+  if (jsonuri.get(token, 'ext/start/ext/attrs')) {
     jsonuri.set(token, 'ext/start/ext/attrs', newAttrs)
   }
   return token
